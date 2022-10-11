@@ -10,25 +10,20 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/vue@next" defer></script>
-
     <script src="app.js" defer></script>
   </head>
   <body>
     <header>
-      <h1>Vue Events</h1>
+      <h1>Vue Course Goals</h1>
     </header>
-    <section id="events">
-      <h2>Events in Action</h2>
-      <button v-on:click="add(5)">Add 5</button>
-      <button v-on:click="remove(5)">Remove 5</button>
-      <p>Result:{{counter}}</p>
-      <input type="text" v-model="name" />
-      <button v-on:click="resetInput">Reset name</button>
-      <p>Your Name:{{outputFullName}}</p>
-      <form v-on:submit.prevent="submitForm">
-        <input type="text">
-        <button>Sign Up</button>
-      </form>
+    <section id="user-goals">
+      <h2>My course goals</h2>
+      <input type="text" v-model="enteredValue"/>
+      <button @click="addGoal">Add Goal</button>
+      <p v-if="goals.length===0">No goals have been added yet - please start adding some!</p>
+      <ul v-else>
+        <li v-for="(goal,index) in goals" @click="removeGoal(index)">{{goal}}</li>
+      </ul>
     </section>
   </body>
 </html>
