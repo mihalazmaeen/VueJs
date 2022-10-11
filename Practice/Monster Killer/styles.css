@@ -13,8 +13,8 @@ body {
 header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0.5rem;
-  background-color: #880017;
-  color: white;
+  background-image: linear-gradient(red,#00a876);
+  color: rgb(227, 178, 178);
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -35,6 +35,11 @@ section {
 
 .healthbar__value {
   background-color: #00a876;
+  width: 100%;
+  height: 100%;
+}
+.healthbar__value__monster{
+  background-color: #9e0c0c;
   width: 100%;
   height: 100%;
 }
@@ -66,7 +71,7 @@ button {
   background-color: #88005b;
   color: white;
   padding: 1rem 2rem;
-  border-radius: 12px;
+  border-radius: 20px;
   margin: 1rem;
   width: 12rem;
   cursor: pointer;
