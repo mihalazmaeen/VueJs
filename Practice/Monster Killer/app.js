@@ -59,6 +59,7 @@ const app = Vue.createApp({
             this.currentRound++;
             const attackValue=getRandomValue(5,15);
             this.monsterHealth -= attackValue;
+            this.addLog('player','attack',attackValue);
             this.attackPlayer();
             if (this.playerHealth < 0) {
                 //player Lost
@@ -68,6 +69,7 @@ const app = Vue.createApp({
         attackPlayer() {
             const attackValue = getRandomValue(8, 18);
             this.playerHealth -= attackValue;
+            this.addLog("monster", "attack", attackValue);
         },
         specialAttackMonster() {
             this.currentRound++;
@@ -84,6 +86,7 @@ const app = Vue.createApp({
             } else {
                 this.playerHealth += healValue;
             }
+            this.addLog("player", "heal", healValue);
             this.attackPlayer();
         },  
         surrender() {
