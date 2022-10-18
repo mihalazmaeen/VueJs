@@ -5,18 +5,18 @@ const app = Vue.createApp({
     data() {
         return {
             playerHealth: 100,
-            monsterHealth: 100,
+            voldemortHealth: 100,
             currentRound: 0,
             winner: null,
             logMessages:[]
         };       
     },
     computed: {
-        monsterBarStyles() {
-            if (this.monsterHealth < 0) {
+        voldemortBarStyles() {
+            if (this.voldemortHealth < 0) {
                 return { width: '0%' };
             }
-            return { width: this.monsterHealth + '%' };  
+            return { width: this.voldemortHealth + '%' };  
         },
         playerBarStyles() {
             if (this.playerHealth < 0) {
@@ -30,19 +30,19 @@ const app = Vue.createApp({
     },
     watch: {
         playerHealth(value) {
-            if (value <= 0 && this.monsterHealth <= 0) {
+            if (value <= 0 && this.voldemortHealth <= 0) {
                 this.winner = 'draw';
             } else if (value <= 0) {
                 // player lost
-                this.winner = 'monster';
+                this.winner = 'voldemort';
             }
         },
-        monsterHealth(value) {
+        voldemortHealth(value) {
             if (value <= 0 && this.playerHealth <= 0) {
               // draw
                 this.winner = 'draw';
             } else if (value <= 0) {
-              // Monster lost
+              // voldemort lost
                 this.winner = 'player';
             }
         }
@@ -50,15 +50,15 @@ const app = Vue.createApp({
     methods: {
         startGame() {
             this.playerHealth = 100;
-            this.monsterHealth = 100;
+            this.voldemortHealth = 100;
             this.winner = null;
             this.currentRound = 0;
             this.logMessages = [];
         },
-        attackMonster() {
+        attackvoldemort() {
             this.currentRound++;
             const attackValue=getRandomValue(5,15);
-            this.monsterHealth -= attackValue;
+            this.voldemortHealth -= attackValue;
             this.addLog('player','attack',attackValue);
             this.attackPlayer();
             if (this.playerHealth < 0) {
@@ -69,12 +69,12 @@ const app = Vue.createApp({
         attackPlayer() {
             const attackValue = getRandomValue(8, 18);
             this.playerHealth -= attackValue;
-            this.addLog("monster", "attack", attackValue);
+            this.addLog("voldemort", "attack", attackValue);
         },
-        specialAttackMonster() {
+        specialAttackvoldemort() {
             this.currentRound++;
             const attackValue = getRandomValue(10, 25);
-            this.monsterHealth -= attackValue;
+            this.voldemortHealth -= attackValue;
             this.addLog("player", "attack", attackValue);
             this.attackPlayer();
             
@@ -92,7 +92,7 @@ const app = Vue.createApp({
             this.attackPlayer();
         },  
         surrender() {
-            this.winner = 'monster';
+            this.winner = 'voldemort';
         },
         addLog(who,what,value) {
             this.logMessages.unshift({

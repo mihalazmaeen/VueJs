@@ -3,7 +3,7 @@
 }
 
 html {
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0.5rem;
-  background-image: linear-gradient(red,#00a876);
+  background-image: linear-gradient(red, #00a876);
   color: rgb(227, 178, 178);
   text-align: center;
   margin-bottom: 2rem;
@@ -38,7 +38,7 @@ section {
   width: 100%;
   height: 100%;
 }
-.healthbar__value__monster{
+.healthbar__value__voldemort {
   background-color: #9e0c0c;
   width: 100%;
   height: 100%;
@@ -52,7 +52,7 @@ section {
   border-radius: 12px;
 }
 
-#monster h2,
+#voldemort h2,
 #player h2 {
   margin: 0.25rem;
 }
@@ -111,7 +111,7 @@ button:disabled {
   color: #7700ff;
 }
 
-.log--monster {
+.log--voldemort {
   color: #da8d00;
 }
 
